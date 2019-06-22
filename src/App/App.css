@@ -1,0 +1,13 @@
+@import './margins.css';
+
+.app_margin_s {
+    margin: $margin-s;
+}
+
+.app_margin_m {
+    margin: $margin-m;
+}
+
+.app_margin_m {
+    margin: $margin-l;
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "jsx": "react",
+        "baseUrl": "frontend",
+        "incremental": true,
+        "alwaysStrict": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSourceMap": true,
+        "newLine": "LF",
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "preserveConstEnums": true,
+        "pretty": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "include": ["./src/**/*"]
+}
