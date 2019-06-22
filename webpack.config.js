@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-module.exports = {
+module.exports = (_, argv) => ({
     entry: path.resolve(__dirname, 'src/index.ts'),
     output: {
         filename: '[name].js',
@@ -13,21 +13,28 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
+    devtool: argv.mode === 'development' ? 'source-map' : false,
     module: {
         rules: [{
                 test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 1
+                            importLoaders: 1,
+                            sourceMap: true
                         }
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss'
+                            ident: 'postcss',
+                            sourceMap: true
                         }
                     }
                 ]
@@ -48,14 +55,13 @@ module.exports = {
             },
         ]
     },
-    devServer:{
+    devServer: {
         port: 3000,
-        hot: true,
-        injectClient: false,
-        injectHot: false
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            sourceMap: true,
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html')
         }),
@@ -65,6 +71,6 @@ module.exports = {
             files: '**/*.css',
             failOnError: false,
             quiet: false,
-          })
+        })
     ],
-}
+})

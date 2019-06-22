@@ -1,9 +1,15 @@
 module.exports = {
     plugins: {
-        'autoprefixer': {},
+        'autoprefixer': {
+            grid: true,
+            browsers: ['>1%'],
+        },
         'postcss-import': {},
         'postcss-simple-vars': {},
-        'postcss-preset-env': {},
+        'postcss-nested': {},
+        'postcss-preset-env': {
+            stage: 3
+        },
         'cssnano': {},
     }
 }

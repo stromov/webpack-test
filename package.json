@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development",
+    "dev": "webpack-dev-server --open --mode development --hot",
     "build": "webpack --mode production",
     "tsc": "tsc"
   },
@@ -17,6 +17,8 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
@@ -26,10 +28,12 @@
     "mini-css-extract-plugin": "^0.7.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.1.2",
     "postcss-preset-env": "^6.6.0",
     "postcss-simple-vars": "^5.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "tslint": "^5.17.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-loader": "^3.5.4",
@@ -39,10 +43,7 @@
     "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
-    "@types/react": "^16.8.22",
-    "@types/react-dom": "^16.8.4",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "stylelint-webpack-plugin": "^0.10.5"
+    "react-dom": "^16.8.6"
   }
 }
