@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.ts'),
@@ -36,7 +37,6 @@ module.exports = {
                 loader: 'tslint-loader',
                 exclude: /node_modules/,
                 options: {
-                    typeCheck: true,
                     tsConfigFile: 'tsconfig.json',
                 }
             },
@@ -52,5 +52,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html')
         }),
+        new ForkTsCheckerWebpackPlugin()
     ],
 }
