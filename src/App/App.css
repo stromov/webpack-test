@@ -1,5 +1,9 @@
 @import './margins.css';
 
+.app {
+    display: grid;
+}
+
 .app_margin_s {
     margin: $margin-s;
 }
@@ -8,6 +12,6 @@
     margin: $margin-m;
 }
 
-.app_margin_m {
+.app_margin_l {
     margin: $margin-l;
 }

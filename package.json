@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development --hot",
+    "dev": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "tsc": "tsc"
   },
@@ -28,6 +28,8 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "postcss-simple-vars": "^5.0.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
     "tslint": "^5.17.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-loader": "^3.5.4",
@@ -40,6 +42,7 @@
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "stylelint-webpack-plugin": "^0.10.5"
   }
 }

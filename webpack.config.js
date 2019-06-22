@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.ts'),
@@ -47,11 +48,23 @@ module.exports = {
             },
         ]
     },
+    devServer:{
+        port: 3000,
+        hot: true,
+        injectClient: false,
+        injectHot: false
+    },
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html')
         }),
-        new ForkTsCheckerWebpackPlugin()
+        new ForkTsCheckerWebpackPlugin(),
+        new StyleLintPlugin({
+            configFile: path.resolve(__dirname, 'stylelint.config.js'),
+            files: '**/*.css',
+            failOnError: false,
+            quiet: false,
+          })
     ],
 }
